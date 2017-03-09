@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>GitHub和Git入门</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>GitHub和Git入门</h1>
+<p>考虑到大家以前可能对版本控制工具和Linux命令行工具都不了解，我写了一个简单的文档来让大家学会入门使用方法。</p>
+<h2>GitHub的简单使用</h2>
+<h3>第一步 创建GitHub账号</h3>
+<h4>1. 打开<a href="https://github.com/">GitHub官网</a>。</h4>
+<h4>2. 点击绿色按钮<code>Sign up for GitHub</code>，填写用户名，邮件地址和密码。</h4>
+<blockquote>
+<p>注意：</p>
+<ol>
+<li>用户名只能包含字母和&quot;-&quot;字符</li>
+<li>密码至少包含一个字母，一个数字和七个字符</li>
+</ol>
+</blockquote>
+<h4>3. 点击绿色按钮<code>Create an account</code>，创建账号。</h4>
+<p><img src="http://7xsct4.com1.z0.glb.clouddn.com/16-6-23/9614107.jpg" /></p>
+<h4>4. 在下一个页面点击绿色按钮<code>Finish sign</code>完成注册。</h4>
+<p><img src="http://7xsct4.com1.z0.glb.clouddn.com/16-6-23/72498223.jpg" /></p>
+<p>现在，你的GitHub账号就创建好了。请先在你的注册邮箱中完成邮件验证，然后可以看看GitHub提供的<a href="https://guides.github.com/activities/hello-world/">新手文档</a>，我们也提供了这一文档的中文版。</p>
+<h3>第二步 创建一个GitHub开发者应用</h3>
+<h4>1. 点击右上角你的头像，在下拉菜单中选择<code>Settings</code>。</h4>
+<p><img src="http://7xsct4.com1.z0.glb.clouddn.com/16-6-23/92452725.jpg" /></p>
+<h4>2. 在左边的<code>Personal settings</code>(个人设置)中选择<code>OAuth applications</code>，再在右侧选择<code>Developer applications</code>。</h4>
+<p><img src="http://7xsct4.com1.z0.glb.clouddn.com/16-6-23/59841864.jpg" /></p>
+<h4>3. 点击上图中的绿色按钮<code>Register a new application</code>，填写应用名称，你的主页，应用描述和回调URL。</h4>
+<p><img src="http://7xsct4.com1.z0.glb.clouddn.com/16-6-23/8770535.jpg" /></p>
+<h4>4. 点击上图中的绿色按钮<code>Register applciation</code>注册应用，注册成功后，记住下一页中的Client ID和Client Secret值。</h4>
+<p><img src="http://7xsct4.com1.z0.glb.clouddn.com/16-6-23/94579538.jpg" /></p>
+<p>OK，现在你就可以使用此Client ID和Client Secret做GitHub三方登录了。</p>
+<h2>Git的简单使用</h2>
+<h3>第一步 下载<a href="https://git-for-windows.github.io/">Git for Windows</a></h3>
+<h4>1. 在官网点击<code>Download</code>，下载对应的exe文件，注意你的操作系统是32位还是64位。</h4>
+<h4>2. 双击安装，中间不用做任何改动，一直下一步就行。如果你想修改安装位置，请放在纯英文路径下。</h4>
+<h4>3. 安装成功，你现在就可以使用git命令行工具了。在你想要下载代码的路径，点击鼠标右键，选择<code>Git Bash here</code>。注意，你的代码路径也应是纯英文的。</h4>
+<h4>4. Git Bash使用的是MinGW，其界面如下图所示：</h4>
+<p><img src="http://7xsct4.com1.z0.glb.clouddn.com/16-6-23/20857114.jpg" /></p>
+<h3>第二步 创建一个本地<code>hello-world</code>仓库</h3>
+<h4>1. 在命令行输入 <code>mkdir hello-word</code>，创建一个新文件夹。你可以使用<code>ls</code>命令来查看当前目录下有哪些文件和文件夹。</h4>
+<h4>2. 输入<code>cd hello-world</code>进入新文件夹，注意在输入命令时，你可以用<code>Tab</code>键来自动补全。</h4>
+<h4>3. 输入<code>git init</code>初始化Git仓库。此时用<code>ls -a</code>查看当前目录，可以看到多了一个<code>.git/</code>的文件夹，此文件夹保存了版本控制的所有相关信息。</h4>
+<p><img src="http://7xsct4.com1.z0.glb.clouddn.com/16-6-23/90302976.jpg" /></p>
+<blockquote>
+<p>注意，在此处使用的所有命令，如果你是在Linux环境下开发，用法都是完全一样的。所以对于完全没有Linux使用经验的学员，这也是一个开始接触Linux工作方式的好方法。</p>
+</blockquote>
+<p>接下来，让我们创建一份简单的说明文件，并提交到版本库中。</p>
+<h4>4. 输入<code>echo &quot;This is a simple practise&quot; &gt; readme.txt</code>，创建一个<code>readme.txt</code>文件。</h4>
+<h4>5. 输入<code>git status</code>查看当前版本库状态，在<code>Untracked files</code>(未跟踪文件)下，会出现红色的<code>readme.txt</code>，代表此文件还未被Git所管理。</h4>
+<p><img src="http://7xsct4.com1.z0.glb.clouddn.com/16-6-23/49562470.jpg" /></p>
+<h4>6. 使用<code>git add readme.txt</code>，将该文件加入缓冲区，如果你确定所有的修改都需要提交，可以使用<code>git add .</code>来加入所有修改。现在用<code>git status</code>查看，将看到文件名变为绿色。</h4>
+<h4>7. 使用<code>git commit -m &quot;This is my first commit via Git!&quot;</code>来提交修改，-m后面所带的参数是本次提交信息，一般用来记录本次提交的主要意图。</h4>
+<p><img src="http://7xsct4.com1.z0.glb.clouddn.com/16-6-23/81441928.jpg" /></p>
+<h4>8. 提交成功后，可以用<code>git log</code>查看历史提交记录。每个记录都会有提交id，作者和提交日期。</h4>
+<h4>9. 你可以用<code>git branch</code>查看当前有哪些分支，当然，因为我们没有创建任何分支，目前只会有一个<code>master</code>分支。</h4>
+<h4>10. 使用<code>git checkout -b feature</code>创建一个名为<code>feature</code>的分支，再用<code>git branch</code>查看一下。</h4>
+<p><img src="http://7xsct4.com1.z0.glb.clouddn.com/16-6-23/5725545.jpg" /></p>
+<p>以上是最最基本的Git操作，大家可以在此<code>hello-world</code>项目中随意尝试各种其他Git命令，最好的参考资料是<a href="https://git-scm.com/book/zh/v2">Pro Git book</a>。</p>
+<blockquote>
+<p>注意：学会Git的唯一方式是在实际使用中学习，切记不要尝试先记住一大堆理论知识或者Git命令。</p>
+</blockquote>
+<h2>项目的下载，查看和修改</h2>
+<h3>第一步. 从GitHub上下载我们的项目代码。</h3>
+<h4>1. 以<a href="https://github.com/feicui-android/Hello-World">Hello-World</a>项目为例，点击绿色按钮<code>Clone or download</code>，然后在弹出窗口中点击剪切板图标，复制仓库的URL。</h4>
+<p><img src="http://7xsct4.com1.z0.glb.clouddn.com/16-6-23/35677312.jpg" /></p>
+<h4>2. 在git bash中输入<code>git clone https://github.com/feicui-android/Hello-World.git</code>，下载项目源码。</h4>
+<h3>第二步. 查看版本历史</h3>
+<h4>1. <code>cd</code>到项目文件夹下，使用<code>git log</code>能看到我们的历史提交记录。</h4>
+<h4>2. 要回到某一历史版本，可以使用<code>git checkout commitId</code>，看完后要回到最新代码，使用<code>git checkout master</code>。</h4>
+<h3>第三步. 本地修改代码</h3>
+<p>你可以在我们的代码基线上任意修改，但为了下载新代码时不出现冲突，请遵循以下步骤：</p>
+<h4>1. 下载新代码：<code>git pull</code>。</h4>
+<h4>2. 从<code>master</code>出捡出一个新的分支：<code>git checkout -b feature</code>。<code>feature</code>是分支名称，你可以随意取名，但请用英文。</h4>
+<h4>3. 在feature分支上随意修改，改完后你可以提交你的修改：<code>git commit -m &quot;some message&quot;</code>。</h4>
+<h4>4. 此时要同步代码，请先切回主分支：<code>git checkout master</code>，然后更新<code>git pull</code>。</h4>
+<h4>5. 如果想删除自己建立的分支，使用<code>git branch -D feature</code>，注意执行此命令后分支被强制删除，无法恢复。</h4>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
